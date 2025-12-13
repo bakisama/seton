@@ -5,7 +5,7 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [Component.Graph(), Component.Backlinks()],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/bakisama/seton",
@@ -16,7 +16,10 @@ export const sharedPageComponents: SharedLayout = {
 // components for pages that display a single page (e.g. a single note)
 export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
-    Component.Breadcrumbs(),
+    Component.ConditionalRender({
+      component: Component.Breadcrumbs(),
+      condition: (page) => page.fileData.slug !== "index",
+    }),
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
@@ -24,21 +27,42 @@ export const defaultContentPageLayout: PageLayout = {
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-    Component.Flex({
-      components: [
-        {
-          Component: Component.Search(),
-          grow: true,
-        },
-        { Component: Component.Darkmode() },
-      ],
+    Component.DesktopOnly(Component.Search()),
+    Component.Darkmode(),
+    Component.Explorer({
+      sortFn: (a, b) => {
+        const emojis =
+          /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g
+        const a_name = a.data?.title.replace(emojis, "").trim()
+        const a_dname = a.displayName.replace(emojis, "").trim()
+        const b_name = b.data?.title.replace(emojis, "").trim()
+        const b_dname = b.displayName.replace(emojis, "").trim()
+        // Sort order: folders first, then files. Sort folders and files alphabetically
+        if (/^.*Home$/.test(a_dname)) {
+          return -1
+        }
+        if (/^.*Home$/.test(b_dname)) {
+          return 1
+        }
+        if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
+          return a_dname.localeCompare(b_dname, undefined, {
+            numeric: true,
+            sensitivity: "base",
+          })
+        }
+
+        if (!a.isFolder && b.isFolder) {
+          return 1
+        } else {
+          return -1
+        }
+      },
     }),
-    Component.Explorer(),
   ],
   right: [
-    Component.Graph(),
-    Component.DesktopOnly(Component.TableOfContents()),
-    Component.Backlinks(),
+    Component.MobileOnly(Component.Search()),
+    Component.MobileOnly(Component.Spacer()),
+    Component.TableOfContents(),
   ],
 }
 
