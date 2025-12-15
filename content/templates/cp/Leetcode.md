@@ -7,8 +7,7 @@ link: {{VALUE:link}}
 difficulty: {{VALUE:difficulty}} 
 tags:
 {{VALUE:tags}} 
-   - programming/practice
-   - leetcode/problem
+   - leetcode
 ---
 # {{VALUE:title}}
 
@@ -38,3 +37,12 @@ tags:
 
 ### Code
 ---
+```cpp
+
+```
+---
+### Optimal Code
+---
+```cpp
+
+```
