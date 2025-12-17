@@ -1,7 +1,7 @@
 ---
 created: 2025-12-15
 modified:
-completed: false
+completed: true
 platform: Coding Ninjas
 problem-id:
 link: https://www.naukri.com/code360/problems/switch-case-statement_8357244

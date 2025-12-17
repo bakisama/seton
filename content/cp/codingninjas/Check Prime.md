@@ -2,14 +2,15 @@
 created: 2025-12-17
 modified:
 completed: false
-platform: "2024 Naukri.com"
-"problem-id":
-link: "https://www.naukri.com/code360/problems/check-prime_624934?leftPanelTabValue=PROBLEM"
+platform: Coding Ninjas
+problem-id:
+link: https://www.naukri.com/code360/problems/check-prime_624934?leftPanelTabValue=PROBLEM
 difficulty:
 tags:
-  - "2024 Naukri.com/problem"
+  - CodingNinjas
+  - cp/math
 ---
-1# Check Prime | Naukri Code 360
+# Check Prime | Naukri Code 360
 
 ## Problem Statement
 
