@@ -13,13 +13,14 @@ site: https://learnjapanese.moe/guide/#22-hiragana-and-katakana
 ## Big picture
 Japanese uses **three scripts**:
 - **Hiragana**
-<br>
+<hr>
 <img src="https://learnjapanese.moe/img/hiragana.png">
 - **Katakana**
-<br>
+<hr>
 <img src = "https://learnjapanese.moe/img/katakana.png">
 - **Kanji**
-<br>
+<hr>
+<hr>
 <img src="https://learnjapanese.moe/img/kanji2.jpg">
 <center><i>The first 80 kanji taught to Japanese 1st graders.</i></center>
 
