@@ -13,8 +13,12 @@ site: https://learnjapanese.moe/guide/#22-hiragana-and-katakana
 ## Big picture
 Japanese uses **three scripts**:
 - **Hiragana**
+<img src="https://learnjapanese.moe/img/hiragana.png">
 - **Katakana**
+<img src = "https://learnjapanese.moe/img/katakana.png">
 - **Kanji**
+<img src="https://learnjapanese.moe/img/kanji2.jpg">
+<center><i>The first 80 kanji taught to Japanese 1st graders.</i></center>
 
 Hiragana + Katakana together are called **kana**.
 
@@ -115,28 +119,37 @@ This is not something to memorize abstractly — it’s a **tool**.
 ---
 
 ### Step 2: One solid video
-- One long hiragana + katakana video
+- [hiragana + katakana video](https://www.youtube.com/watch?v=_wZHqOghvSs)
 - Purpose: familiarity, not mastery
 
 This prevents piecemeal confusion.
 
 ---
 
-### Step 3: Grinding (inevitable)
-Kana are learned by **repetition**, not understanding.
+### Step 3 — Kana Grinding (Recognition)
 
-Recommended order:
-1. Hiragana
-2. Hiragana combinations
-3. Katakana
-4. Katakana combinations
+Use the **kana grinding game**:  
+https://gohoneko.neocities.org/learn/kana
 
-Expected time:
-- ~3 weeks to a month is normal
-- Slow ≠ bad
+This is for **instant recognition**, not writing or theory.
 
-Also important:
-> Kana grinding can run **in parallel** with beginner immersion.
+#### How to use it
+1. Click **“show/hide options”**
+2. Under **Hiragana**, click **“check all”**
+3. Start guessing the **pronunciation** of each character
+4. Repeat daily until recognition feels automatic  
+   (this can take days or weeks — normal)
+
+Once confident:
+5. Enable **Hiragana combinations** and repeat
+6. Then switch to **Katakana**
+7. Finally, enable **Katakana combinations**
+
+#### Notes
+- This stage can take **3–4 weeks**
+- Speed and accuracy matter more than perfection
+- Don’t pause immersion while doing this
+
 
 ---
 
@@ -154,7 +167,7 @@ At this stage:
 - I do **not** need to understand meaning
 - Goal = visual + phonetic familiarity
 
-Tadoku graded readers are ideal for this.
+[Tadoku graded readers](https://tadoku.org/japanese/free-books/#l0) are ideal for this.
 
 ---
 
