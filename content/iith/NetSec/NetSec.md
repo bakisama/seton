@@ -23,6 +23,16 @@ title: CS6903
 	- Assignment 2 (Could be project) : for example Socket programming chat app
 		- Phase 1: Rudimentary chat app with no authentication
 		- Phase 2: Add some cryptographic techniques (and attacks other team's application)
-	- 
+
+### Practice Platforms
+- https://www.overthewire.org/wargames (wargames)
+- https://challenges.re (reverse engineering challenges)
+- https://ctftime.org/ctfs (ctfs)
+
+### Things I should learn/do
+- Socket Programming
+- CTFs
+- How to build a secure web app with php and no frameworks
+- Practice on the given practice platforms
 
 
