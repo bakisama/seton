@@ -378,18 +378,3 @@ OA-ready, CF **1400 comfort**
 - Mock OA  
     [https://share.google/MvCmHaGn53YueO53K](https://share.google/MvCmHaGn53YueO53K)
     
-
----
-
-If you want next:
-
-- 📋 **Notion daily tracker**
-    
-- 📆 **Exact day-by-day calendar**
-    
-- ⚡ **90-day aggressive sprint**
-    
-- 🎯 **OA-only fast-track**
-    
-
-Just tell me which one — and how many hours/day you can give.
