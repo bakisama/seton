@@ -1,0 +1,294 @@
+<%*
+
+const clipboard = await tp.system.clipboard();
+
+const match = clipboard.match(/leetcode\.com\/problems\/([\w-]+)\//);
+
+  
+
+if (!match) {
+
+  tR += "❌ Invalid LeetCode URL";
+
+  return;
+
+}
+
+  
+
+const slug = match[1];
+
+const title = slug
+
+  .split("-")
+
+  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+
+  .join(" ");
+
+  
+
+const url = `https://leetcode.com/problems/${slug}/`;
+
+
+const difficultyMap = {
+  "contains-duplicate": "Easy",
+  "valid-anagram": "Easy",
+  "two-sum": "Easy",
+  "group-anagrams": "Medium",
+  "top-k-frequent-elements": "Medium",
+  "product-of-array-except-self": "Medium",
+  "valid-sudoku": "Medium",
+  "longest-consecutive-sequence": "Medium",
+  "encode-and-decode-strings": "Medium",
+  "insert-delete-getrandom-o1": "Medium",
+  "binary-search": "Easy",
+  "search-a-2d-matrix": "Medium",
+  "koko-eating-bananas": "Medium",
+  "find-minimum-in-rotated-sorted-array": "Medium",
+  "search-in-rotated-sorted-array": "Medium",
+  "time-based-key-value-store": "Medium",
+  "median-of-two-sorted-arrays": "Hard",
+  "reverse-linked-list": "Easy",
+  "merge-two-sorted-lists": "Easy",
+  "reorder-list": "Medium",
+  "remove-nth-node-from-end-of-list": "Medium",
+  "copy-list-with-random-pointer": "Medium",
+  "add-two-numbers": "Medium",
+  "linked-list-cycle": "Easy",
+  "find-the-duplicate-number": "Medium",
+  "lfu-cache": "Hard",
+  "binary-tree-level-order-traversal": "Medium",
+  "validate-binary-search-tree": "Medium",
+  "kth-smallest-element-in-a-bst": "Medium",
+  "lowest-common-ancestor-of-a-binary-search-tree": "Easy",
+  "binary-tree-right-side-view": "Medium",
+  "count-good-nodes-in-binary-tree": "Medium",
+  "construct-binary-tree-from-preorder-and-inorder-traversal": "Medium",
+  "binary-tree-maximum-path-sum": "Hard",
+  "serialize-and-deserialize-binary-tree": "Hard",
+  "subtree-of-another-tree": "Easy",
+  "same-tree": "Easy",
+  "invert-binary-tree": "Easy",
+  "diameter-of-binary-tree": "Easy",
+  "balanced-binary-tree": "Easy",
+  "maximum-depth-of-binary-tree": "Easy",
+  "path-sum": "Easy",
+  "climbing-stairs": "Easy",
+  "house-robber": "Medium",
+  "house-robber-ii": "Medium",
+  "longest-palindromic-substring": "Medium",
+  "palindromic-substrings": "Medium",
+  "decode-ways": "Medium",
+  "coin-change": "Medium",
+  "maximum-product-subarray": "Medium",
+  "word-break": "Medium",
+  "longest-increasing-subsequence": "Medium",
+  "unique-paths": "Medium",
+  "longest-common-subsequence": "Medium",
+  "course-schedule": "Medium",
+  "course-schedule-ii": "Medium",
+  "alien-dictionary": "Hard",
+  "number-of-connected-components-in-an-undirected-graph": "Medium",
+  "graph-valid-tree": "Medium",
+  "pacific-atlantic-water-flow": "Medium",
+  "rotting-oranges": "Medium",
+  "walls-and-gates": "Medium",
+  "number-of-islands": "Medium",
+  "clone-graph": "Medium",
+  "network-delay-time": "Medium",
+  "min-cost-to-connect-all-points": "Medium",
+  "accounts-merge": "Medium",
+  "redundant-connection": "Medium",
+  "implement-trie-prefix-tree": "Medium",
+  "add-and-search-word-data-structure-design": "Medium",
+  "word-search-ii": "Hard",
+  "design-add-and-search-words-data-structure": "Medium",
+  "maximum-subarray": "Easy",
+  "merge-intervals": "Medium",
+  "insert-interval": "Medium",
+  "non-overlapping-intervals": "Medium",
+  "meeting-rooms": "Easy",
+  "meeting-rooms-ii": "Medium",
+  "reverse-words-in-a-string": "Medium",
+  "longest-substring-without-repeating-characters": "Medium",
+  "longest-repeating-character-replacement": "Medium",
+  "minimum-window-substring": "Hard",
+  "valid-palindrome": "Easy",
+  "palindrome-partitioning": "Medium",
+  "valid-parentheses": "Easy",
+  "generate-parentheses": "Medium",
+  "min-stack": "Medium",
+  "evaluate-reverse-polish-notation": "Medium",
+  "daily-temperatures": "Medium",
+  "car-fleet": "Medium",
+  "largest-rectangle-in-histogram": "Hard",
+  "binary-search": "Easy",
+  "design-twitter": "Medium",
+  "find-median-from-data-stream": "Hard",
+  "merge-k-sorted-lists": "Hard",
+  "top-k-frequent-words": "Medium",
+  "design-search-autocomplete-system": "Hard",
+  "last-stone-weight": "Easy",
+  "network-delay-time": "Medium"
+};
+
+const topicMap = {
+  "contains-duplicate": "Arrays & Hashing",
+  "valid-anagram": "Arrays & Hashing",
+  "two-sum": "Arrays & Hashing",
+  "group-anagrams": "Arrays & Hashing",
+  "top-k-frequent-elements": "Arrays & Hashing",
+  "product-of-array-except-self": "Arrays & Hashing",
+  "valid-sudoku": "Arrays & Hashing",
+  "longest-consecutive-sequence": "Arrays & Hashing",
+  "encode-and-decode-strings": "Arrays & Hashing",
+  "insert-delete-getrandom-o1": "Arrays & Hashing",
+  "binary-search": "Binary Search",
+  "search-a-2d-matrix": "Binary Search",
+  "koko-eating-bananas": "Binary Search",
+  "find-minimum-in-rotated-sorted-array": "Binary Search",
+  "search-in-rotated-sorted-array": "Binary Search",
+  "time-based-key-value-store": "Binary Search",
+  "median-of-two-sorted-arrays": "Binary Search",
+  "reverse-linked-list": "Linked List",
+  "merge-two-sorted-lists": "Linked List",
+  "reorder-list": "Linked List",
+  "remove-nth-node-from-end-of-list": "Linked List",
+  "copy-list-with-random-pointer": "Linked List",
+  "add-two-numbers": "Linked List",
+  "linked-list-cycle": "Linked List",
+  "find-the-duplicate-number": "Linked List",
+  "lfu-cache": "Linked List",
+  "binary-tree-level-order-traversal": "Trees",
+  "validate-binary-search-tree": "Trees",
+  "kth-smallest-element-in-a-bst": "Trees",
+  "lowest-common-ancestor-of-a-binary-search-tree": "Trees",
+  "binary-tree-right-side-view": "Trees",
+  "count-good-nodes-in-binary-tree": "Trees",
+  "construct-binary-tree-from-preorder-and-inorder-traversal": "Trees",
+  "binary-tree-maximum-path-sum": "Trees",
+  "serialize-and-deserialize-binary-tree": "Trees",
+  "subtree-of-another-tree": "Trees",
+  "same-tree": "Trees",
+  "invert-binary-tree": "Trees",
+  "diameter-of-binary-tree": "Trees",
+  "balanced-binary-tree": "Trees",
+  "maximum-depth-of-binary-tree": "Trees",
+  "path-sum": "Trees",
+  "climbing-stairs": "Dynamic Programming",
+  "house-robber": "Dynamic Programming",
+  "house-robber-ii": "Dynamic Programming",
+  "longest-palindromic-substring": "Dynamic Programming",
+  "palindromic-substrings": "Dynamic Programming",
+  "decode-ways": "Dynamic Programming",
+  "coin-change": "Dynamic Programming",
+  "maximum-product-subarray": "Dynamic Programming",
+  "word-break": "Dynamic Programming",
+  "longest-increasing-subsequence": "Dynamic Programming",
+  "unique-paths": "Dynamic Programming",
+  "longest-common-subsequence": "Dynamic Programming",
+  "course-schedule": "Graphs",
+  "course-schedule-ii": "Graphs",
+  "alien-dictionary": "Graphs",
+  "number-of-connected-components-in-an-undirected-graph": "Graphs",
+  "graph-valid-tree": "Graphs",
+  "pacific-atlantic-water-flow": "Graphs",
+  "rotting-oranges": "Graphs",
+  "walls-and-gates": "Graphs",
+  "number-of-islands": "Graphs",
+  "clone-graph": "Graphs",
+  "network-delay-time": "Graphs",
+  "min-cost-to-connect-all-points": "Graphs",
+  "accounts-merge": "Graphs",
+  "redundant-connection": "Graphs",
+  "implement-trie-prefix-tree": "Tries",
+  "add-and-search-word-data-structure-design": "Tries",
+  "word-search-ii": "Tries",
+  "design-add-and-search-words-data-structure": "Tries",
+  "maximum-subarray": "Intervals",
+  "merge-intervals": "Intervals",
+  "insert-interval": "Intervals",
+  "non-overlapping-intervals": "Intervals",
+  "meeting-rooms": "Intervals",
+  "meeting-rooms-ii": "Intervals",
+  "reverse-words-in-a-string": "Strings",
+  "longest-substring-without-repeating-characters": "Sliding Window",
+  "longest-repeating-character-replacement": "Sliding Window",
+  "minimum-window-substring": "Sliding Window",
+  "valid-palindrome": "Two Pointers",
+  "palindrome-partitioning": "Backtracking",
+  "valid-parentheses": "Stack",
+  "generate-parentheses": "Backtracking",
+  "min-stack": "Stack",
+  "evaluate-reverse-polish-notation": "Stack",
+  "daily-temperatures": "Stack",
+  "car-fleet": "Stack",
+  "largest-rectangle-in-histogram": "Stack",
+  "design-twitter": "Heap / Priority Queue",
+  "find-median-from-data-stream": "Heap / Priority Queue",
+  "merge-k-sorted-lists": "Heap / Priority Queue",
+  "top-k-frequent-words": "Heap / Priority Queue",
+  "design-search-autocomplete-system": "Heap / Priority Queue",
+  "last-stone-weight": "Heap / Priority Queue"
+};
+
+const difficulty = difficultyMap[slug] || "Unknown";
+
+const topic = topicMap[slug] || "Uncategorized";
+
+const revisitDate = moment().add(7, 'days').format("YYYY-MM-DD");
+
+const today = moment().format("YYYY-MM-DD");
+
+  
+
+tR += `# 🧠 [[${title}]]
+
+- 🔗 LeetCode: [${title}](${url})
+
+- 🟩 Difficulty: ${difficulty}
+
+- 📁 Topic: ${topic}
+
+- Date: [[${today}]]
+
+## ✅ Problem Summary
+
+  
+
+## ✏️ My Approach
+
+  
+
+## 🚧 Struggles
+
+  
+
+## 📺 Notes
+
+  
+
+## 💻 Final Solution (Language: python)
+
+\`\`\`python
+
+# Paste code here
+
+\`\`\`
+
+  
+
+
+## 🧠 One-Liner Summary
+
+  
+
+## 🔄 Revisit Date: [[${revisitDate}]]
+### 🔁 Spaced Repetition
+
+  
+
+`;
+
+%>
