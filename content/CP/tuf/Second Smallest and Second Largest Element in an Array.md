@@ -110,7 +110,7 @@ I iterate through the array once and update these values carefully.
 ```cpp
 #include <climits>
 #include <vector>
-using namespace std;
+using namespace std; 
 
 pair<int, int> secondSmallestAndLargest(vector<int> &arr) {
     int n = arr.size();
@@ -160,7 +160,7 @@ This is optimal since I must inspect every element at least once.
 
 ## Edge Cases to Remember
 
-- Array size < 2 → no second elements
+ - Array size < 2 → no second elements
     
 - All elements equal → no second smallest or largest
     
